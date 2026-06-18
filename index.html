@@ -551,20 +551,7 @@
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-// ── GUARANTEED LOADER HIDE (Bug 1 fix) ──
-(function(){
-  function forceHideLoader(){
-    var el=document.getElementById('loader');
-    if(!el||el.style.display==='none')return;
-    el.style.transition='opacity 0.5s';
-    el.style.opacity='0';
-    setTimeout(function(){
-      el.style.display='none';
-      try{ScrollTrigger.refresh();}catch(e){}
-    },500);
-  }
-  setTimeout(forceHideLoader,2500);
-})();
+// Loader hide handled by emergency script below
 
 try{
 (function(){
@@ -637,13 +624,6 @@ try{
 }catch(e){console.warn("Three.js error:",e);}
 window.addEventListener('load',()=>{
   setTimeout(()=>{
-    var loaderEl=document.getElementById('loader');
-    if(loaderEl&&loaderEl.style.display!=='none'){
-      gsap.to('#loader',{opacity:0,duration:0.5,onComplete:()=>{
-        loaderEl.style.display='none';
-        try{ScrollTrigger.refresh();}catch(e){}
-      }});
-    }
     gsap.to('.hero-eyebrow',{opacity:1,y:0,duration:0.7,delay:0.2});
     gsap.to('.hero-title',{opacity:1,y:0,duration:0.8,delay:0.4});
     gsap.to('.hero-sub',{opacity:1,y:0,duration:0.7,delay:0.7});
@@ -706,6 +686,24 @@ const dots=document.querySelectorAll('.nav-dot');
 dots.forEach((d,i)=>d.addEventListener('click',()=>sections[i].scrollIntoView({behavior:'smooth'})));
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){const i=Array.from(sections).indexOf(e.target);dots.forEach(d=>d.classList.remove('active'));if(dots[i])dots[i].classList.add('active');}}),{threshold:0.5});
 sections.forEach(s=>obs.observe(s));
+</script>
+<script>
+(function(){
+  function hideLoader(){
+    var el=document.getElementById('loader');
+    if(!el)return;
+    el.style.transition='opacity 0.5s';
+    el.style.opacity='0';
+    el.style.pointerEvents='none';
+    setTimeout(function(){el.style.display='none';document.body.style.overflow='auto';},600);
+  }
+  // Fire after 1.5s NO MATTER WHAT
+  setTimeout(hideLoader, 1500);
+  // Also fire on load
+  window.addEventListener('load', function(){ setTimeout(hideLoader, 300); });
+  // Also fire on DOMContentLoaded  
+  document.addEventListener('DOMContentLoaded', function(){ setTimeout(hideLoader, 500); });
+})();
 </script>
 </body>
 </html>
