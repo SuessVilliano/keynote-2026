@@ -4,7 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>From an Idea to a Business in 2026 | Jamaur Johnson</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+// ── THEME TOGGLE (Bug 4) ──
+(function(){
+  var btn=document.getElementById('theme-toggle');
+  var stored=localStorage.getItem('theme');
+  if(stored==='light'){document.body.classList.add('light-mode');if(btn)btn.textContent='🌙';}
+  if(btn){
+    btn.addEventListener('click',function(){
+      var isLight=document.body.classList.toggle('light-mode');
+      btn.textContent=isLight?'🌙':'☀️';
+      localStorage.setItem('theme',isLight?'light':'dark');
+    });
+  }
+})();
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
@@ -104,7 +119,7 @@
   .roles-ring { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
   .role-pill { background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.3); border-radius: 100px; padding: 10px 22px; font-size: 14px; font-weight: 600; color: var(--gold); opacity: 0; transform: scale(0) rotate(-10deg); letter-spacing: 0.05em; }
 
-  #mollys { background: var(--charcoal); padding: 80px 20px; }
+  #mals { background: var(--charcoal); padding: 80px 20px; }
   .before-after { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 20px; align-items: center; max-width: 900px; width: 100%; }
   @media (max-width: 700px) { .before-after { grid-template-columns: 1fr; text-align: center; } .ba-arrow { transform: rotate(90deg); } }
   .ba-card { border-radius: 20px; padding: 32px; opacity: 0; }
@@ -223,9 +238,98 @@
   .final-name span { color: var(--gold); }
   .gold { color: var(--gold); } .emerald { color: var(--emerald); } .text-center { text-align: center; }
   @media (max-width: 480px) { #progress-nav { display: none; } }
+
+  /* ── THEME TOGGLE ── */
+  #theme-toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 9999;
+    background: rgba(0,0,0,0.6); border: 1px solid var(--gold);
+    border-radius: 50%; width: 44px; height: 44px;
+    font-size: 20px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(8px); transition: background 0.3s, border-color 0.3s;
+  }
+  #theme-toggle:hover { background: rgba(212,175,55,0.15); }
+
+  /* ── LIGHT MODE ── */
+  body.light-mode {
+    --black: #F5F5F0; --white: #111111; --charcoal: #E8E8E2;
+    background: #F5F5F0; color: #111111;
+  }
+  body.light-mode #loader { background: #F5F5F0; }
+  body.light-mode .section-heading, body.light-mode .section-label { color: #111111; }
+  body.light-mode .hero-title { color: #111111; }
+  body.light-mode .hero-sub { color: rgba(0,0,0,0.6); }
+  body.light-mode .hero-presenter { color: rgba(0,0,0,0.5); }
+  body.light-mode section { background: #F5F5F0; }
+  body.light-mode #hero { background: #F5F5F0; }
+  body.light-mode .timeline-item, body.light-mode .journey-step,
+  body.light-mode .excuse-card, body.light-mode .stair-step,
+  body.light-mode .split-item, body.light-mode .thing-card,
+  body.light-mode .ch-card, body.light-mode .terminal,
+  body.light-mode .door { background: #FFFFFF; color: #111111; border-color: rgba(0,0,0,0.1); }
+  body.light-mode .barber-quote { color: rgba(0,0,0,0.85); }
+  body.light-mode .ba-card.before { background: rgba(0,0,0,0.05); }
+  body.light-mode .ba-card.after { background: rgba(63,163,77,0.08); }
+  body.light-mode .t-line { color: #111111; }
+  body.light-mode .terminal-header { background: rgba(0,0,0,0.08); color: #333; }
+  body.light-mode .terminal-body { background: #FAFAFA; }
+  body.light-mode #theme-toggle { background: rgba(255,255,255,0.8); border-color: #111111; }
+
+  /* ── EXPORT PDF BUTTON ── */
+  #export-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    background: rgba(5,5,5,0.85); border: 1.5px solid var(--gold);
+    color: var(--gold); padding: 10px 18px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    cursor: pointer; backdrop-filter: blur(8px);
+    transition: background 0.2s, transform 0.1s;
+  }
+  #export-btn:hover { background: rgba(212,175,55,0.12); transform: translateY(-1px); }
+  body.light-mode #export-btn { background: rgba(255,255,255,0.9); color: #111111; border-color: #111111; }
+
+  /* ── MOBILE: show all content by default (Bug 2 + 3) ── */
+  @media (max-width: 768px) {
+    .section-label, .section-heading, .avatar-wrap, .timeline, .timeline-item,
+    .barber-icon, .barber-quote, .journey-step, .excuse-card, .smash-text,
+    .role-pill, .ba-card, .ba-arrow, .split-col, .split-item, .stair-step,
+    .lie-text, .truth-pill, .gen-col, .gen-item, .terminal, .door, .thing-card,
+    .challenge-big, .ch-card, .cta-avatar, .cta-tagline, .cta-url,
+    .qr-placeholder, .final-name, .hero-eyebrow, .hero-title, .hero-sub,
+    .hero-presenter, #barber-sub, #mals-sub, #re-sub, #future-sub,
+    #lie-sub, #challenge-sub, #superpower-sub, #future-sub {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    /* Ensure sections scroll naturally on mobile */
+    section { overflow: visible; }
+    body { overflow-x: hidden; }
+  }
+
+  /* ── PRINT / EXPORT SLIDES (Bug 6) ── */
+  @media print {
+    @page { size: landscape; margin: 0; }
+    #loader, nav, #theme-toggle, #export-btn,
+    #hero-canvas, #orb-canvas, #cta-canvas { display: none !important; }
+    body { background: #fff !important; color: #000 !important; }
+    section {
+      page-break-before: always;
+      min-height: 100vh;
+      opacity: 1 !important;
+      transform: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    section:first-of-type { page-break-before: avoid; }
+    * { opacity: 1 !important; transform: none !important; }
+  }
+
 </style>
 </head>
 <body>
+<button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">☀️</button>
+<button id="export-btn" onclick="window.print()" title="Export as PDF">↓ Export Slides</button>
+
 <div id="loader">
   <div class="loader-logo">Jamaur Johnson</div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
@@ -325,11 +429,11 @@
     </div>
   </div>
 </section>
-<section id="mollys">
+<section id="mals">
   <div style="max-width:1000px;width:100%">
     <div class="section-label">Case Study</div>
-    <h2 class="section-heading">Molly’s <span class="gold">Seafood</span> Story</h2>
-    <p style="color:rgba(255,255,255,0.5);font-size:16px;margin-bottom:40px;opacity:0" id="mollys-sub">A local business owner with no tech background. Here’s what changed.</p>
+    <h2 class="section-heading">Mal’s Famous Seafood Grill <span class="gold">Story</span></h2>
+    <p style="color:rgba(255,255,255,0.5);font-size:16px;margin-bottom:40px;opacity:0" id="mals-sub">A local business owner with no tech background. Here’s what changed.</p>
     <div class="before-after">
       <div class="ba-card before"><div class="ba-label">Before</div><div class="ba-title">Just a Great Restaurant 🦐</div><ul class="ba-list"><li>Walk-in customers only</li><li>Word of mouth marketing</li><li>No website, no social</li><li>Revenue capped locally</li><li>No email list, no loyalty</li></ul></div>
       <div class="ba-arrow">→</div>
@@ -446,6 +550,23 @@
 </section>
 <script>
 gsap.registerPlugin(ScrollTrigger);
+
+// ── GUARANTEED LOADER HIDE (Bug 1 fix) ──
+(function(){
+  function forceHideLoader(){
+    var el=document.getElementById('loader');
+    if(!el||el.style.display==='none')return;
+    el.style.transition='opacity 0.5s';
+    el.style.opacity='0';
+    setTimeout(function(){
+      el.style.display='none';
+      try{ScrollTrigger.refresh();}catch(e){}
+    },500);
+  }
+  setTimeout(forceHideLoader,2500);
+})();
+
+try{
 (function(){
   const canvas=document.getElementById('hero-canvas');
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
@@ -481,6 +602,8 @@ gsap.registerPlugin(ScrollTrigger);
   animate();
   window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
 })();
+}catch(e){console.warn("Three.js error:",e);}
+try{
 (function(){
   const canvas=document.getElementById('orb-canvas');
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
@@ -497,6 +620,8 @@ gsap.registerPlugin(ScrollTrigger);
   let f=0;function animate(){requestAnimationFrame(animate);f++;orb.rotation.y=f*0.005;orb.rotation.x=f*0.003;orb2.rotation.y=-f*0.007;ring.rotation.z=f*0.004;renderer.render(scene,camera);}animate();
   window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
 })();
+}catch(e){console.warn("Three.js error:",e);}
+try{
 (function(){
   const canvas=document.getElementById('cta-canvas');
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
@@ -509,21 +634,29 @@ gsap.registerPlugin(ScrollTrigger);
   scene.add(new THREE.Points(geo,new THREE.PointsMaterial({color:0xD4AF37,size:0.1,transparent:true,opacity:0.5})));
   function animate(){requestAnimationFrame(animate);for(let i=0;i<count;i++){pos[i*3]+=vel[i*3];pos[i*3+1]+=vel[i*3+1];if(Math.abs(pos[i*3])>10)vel[i*3]*=-1;if(Math.abs(pos[i*3+1])>10)vel[i*3+1]*=-1;}geo.attributes.position.needsUpdate=true;renderer.render(scene,camera);}animate();
 })();
+}catch(e){console.warn("Three.js error:",e);}
 window.addEventListener('load',()=>{
   setTimeout(()=>{
-    gsap.to('#loader',{opacity:0,duration:0.5,onComplete:()=>{document.getElementById('loader').style.display='none';}});
+    var loaderEl=document.getElementById('loader');
+    if(loaderEl&&loaderEl.style.display!=='none'){
+      gsap.to('#loader',{opacity:0,duration:0.5,onComplete:()=>{
+        loaderEl.style.display='none';
+        try{ScrollTrigger.refresh();}catch(e){}
+      }});
+    }
     gsap.to('.hero-eyebrow',{opacity:1,y:0,duration:0.7,delay:0.2});
     gsap.to('.hero-title',{opacity:1,y:0,duration:0.8,delay:0.4});
     gsap.to('.hero-sub',{opacity:1,y:0,duration:0.7,delay:0.7});
     gsap.to('.hero-presenter',{opacity:1,duration:0.7,delay:1});
   },2000);
 });
+if(window.innerWidth>768){
 function onEnter(t,fn){ScrollTrigger.create({trigger:t,start:'top 75%',once:true,onEnter:fn});}
 onEnter('#meet',()=>{gsap.to('#meet .section-label',{opacity:1,duration:0.5});gsap.to('#meet .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('.avatar-wrap',{opacity:1,x:0,duration:0.8,delay:0.2});gsap.to('.timeline',{opacity:1,x:0,duration:0.8,delay:0.3});gsap.to('.timeline-item',{opacity:1,x:0,duration:0.5,stagger:0.12,delay:0.5});});
 onEnter('#barber',()=>{gsap.to('#barber .section-label',{opacity:1,duration:0.5});gsap.to('.barber-icon',{opacity:1,scale:1,duration:0.7,ease:'back.out(1.7)',delay:0.1});gsap.to('.barber-quote',{opacity:1,y:0,duration:0.8,delay:0.4});gsap.to('#barber-sub',{opacity:1,duration:0.6,delay:0.7});gsap.to('.journey-step',{opacity:1,y:0,duration:0.5,stagger:0.15,delay:0.9});});
 onEnter('#ideas',()=>{gsap.to('#ideas .section-label',{opacity:1,duration:0.5});gsap.to('#ideas .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('.excuse-card',{opacity:1,y:0,rotate:0,duration:0.6,stagger:0.12,delay:0.3});gsap.to('.smash-text',{opacity:1,scale:1,duration:0.8,delay:1.0,ease:'back.out(1.7)'));});
 onEnter('#superpower',()=>{gsap.to('#superpower .section-label',{opacity:1,duration:0.5});gsap.to('#superpower .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('#superpower-sub',{opacity:1,duration:0.6,delay:0.3});gsap.to('.role-pill',{opacity:1,scale:1,rotate:0,duration:0.5,stagger:0.08,delay:0.5,ease:'back.out(1.7)'});});
-onEnter('#mollys',()=>{gsap.to('#mollys .section-label',{opacity:1,duration:0.5});gsap.to('#mollys .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('#mollys-sub',{opacity:1,duration:0.6,delay:0.2});gsap.to('.ba-card.before',{opacity:1,x:0,duration:0.8,delay:0.4});gsap.to('.ba-arrow',{opacity:1,scale:1,duration:0.5,delay:0.8,ease:'back.out(1.7)'});gsap.to('.ba-card.after',{opacity:1,x:0,duration:0.8,delay:0.6});});
+onEnter('#mals',()=>{gsap.to('#mals .section-label',{opacity:1,duration:0.5});gsap.to('#mals .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('#mals-sub',{opacity:1,duration:0.6,delay:0.2});gsap.to('.ba-card.before',{opacity:1,x:0,duration:0.8,delay:0.4});gsap.to('.ba-arrow',{opacity:1,scale:1,duration:0.5,delay:0.8,ease:'back.out(1.7)'});gsap.to('.ba-card.after',{opacity:1,x:0,duration:0.8,delay:0.6});});
 onEnter('#realestate',()=>{gsap.to('#realestate .section-label',{opacity:1,duration:0.5});gsap.to('#realestate .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('#re-sub',{opacity:1,duration:0.6,delay:0.2});gsap.to('.split-col.left',{opacity:1,x:0,duration:0.8,delay:0.3});gsap.to('.split-col.right',{opacity:1,x:0,duration:0.8,delay:0.4});gsap.to('.split-item',{opacity:1,y:0,duration:0.4,stagger:0.07,delay:0.6});});
 onEnter('#builder',()=>{gsap.to('#builder .section-label',{opacity:1,duration:0.5});gsap.to('#builder .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('.stair-step',{opacity:1,x:0,duration:0.6,stagger:0.15,delay:0.3,ease:'back.out(1.2)'});});
 onEnter('#lie',()=>{gsap.to('#lie .section-label',{opacity:1,duration:0.5});gsap.to('#lie .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('.lie-text',{opacity:1,scale:1,duration:0.7,delay:0.3});gsap.to('#lie-sub',{opacity:1,duration:0.6,delay:0.7});gsap.to('.truth-pill',{opacity:1,y:0,scale:1,duration:0.6,stagger:0.15,delay:0.9,ease:'back.out(1.7)'});});
@@ -565,6 +698,8 @@ onEnter('#future',()=>{gsap.to('#future .section-label',{opacity:1,duration:0.5}
 onEnter('#three-things',()=>{gsap.to('#three-things .section-label',{opacity:1,duration:0.5});gsap.to('#three-things .section-heading',{opacity:1,y:0,duration:0.7,delay:0.1});gsap.to('.thing-card',{opacity:1,y:0,duration:0.7,stagger:0.2,delay:0.3,ease:'back.out(1.2)'});});
 onEnter('#challenge',()=>{gsap.to('#challenge .section-label',{opacity:1,duration:0.5});gsap.to('.challenge-big',{opacity:1,y:0,duration:0.8,delay:0.2});gsap.to('#challenge-sub',{opacity:1,duration:0.6,delay:0.5});gsap.to('.ch-card',{opacity:1,scale:1,duration:0.6,stagger:0.12,delay:0.7,ease:'back.out(1.5)'});});
 onEnter('#cta',()=>{gsap.to('.cta-avatar',{opacity:1,scale:1,duration:0.8,ease:'back.out(1.7)',delay:0.1});gsap.to('#cta .section-label',{opacity:1,duration:0.5,delay:0.3});gsap.to('.cta-tagline',{opacity:1,y:0,duration:0.8,delay:0.5});gsap.to('.cta-url',{opacity:1,duration:0.6,delay:0.8});gsap.to('.qr-placeholder',{opacity:1,duration:0.6,delay:1});gsap.to('.final-name',{opacity:1,duration:0.6,delay:1.2});});
+
+}
 (function buildQR(){const g=document.getElementById('qr-grid');for(let i=0;i<25;i++){const c=document.createElement('div');c.className='qr-cell';const is=[0,1,5,6,3,4,8,9,15,16,20,21,18,19,23,24].includes(i);c.style.background=(is||Math.random()>0.5)?'#D4AF37':'transparent';g.appendChild(c);}})();
 const sections=document.querySelectorAll('section');
 const dots=document.querySelectorAll('.nav-dot');
