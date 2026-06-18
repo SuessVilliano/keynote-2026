@@ -18,8 +18,8 @@ html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFo
 #progress-nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:9998;display:flex;flex-direction:column;gap:8px}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s;border:none;padding:0}
 .dot.active{background:var(--gold);transform:scale(1.5)}
-#export-btn{position:fixed;bottom:24px;right:18px;z-index:9997;background:var(--bg2);border:1px solid var(--gold);color:var(--gold);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;letter-spacing:.08em;cursor:pointer;transition:all .2s}
-#export-btn:hover{background:var(--gold);color:#000}
+#export-btn{position:fixed;bottom:22px;left:18px;z-index:9997;background:var(--card-bg);border:1px solid var(--border);color:var(--text3);border-radius:50%;width:32px;height:32px;font-size:14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+#export-btn:hover{border-color:var(--gold);color:var(--gold)}
 @media(max-width:600px){#progress-nav{right:8px}}
 .eyebrow{font-size:clamp(9px,1.2vw,11px);letter-spacing:.18em;font-weight:600;color:var(--gold);text-transform:uppercase;margin-bottom:clamp(6px,1.2vh,14px)}
 .h1{font-size:clamp(28px,6vw,80px);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:var(--text)}
@@ -178,9 +178,7 @@ html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFo
 #s15{text-align:center;gap:clamp(8px,1.5vh,14px)}
 .cta-tag{font-size:clamp(18px,3.5vw,48px);font-weight:900;letter-spacing:.02em;line-height:1.1;color:var(--gold);max-width:660px;margin:0 auto}
 .cta-url{font-size:clamp(13px,1.8vw,20px);color:var(--text2);letter-spacing:.04em}
-.qr{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;width:clamp(70px,9vw,90px);height:clamp(70px,9vw,90px);margin:0 auto}
-.qrc{border-radius:2px;background:var(--gold);opacity:.14}
-.qrc.on{opacity:1}
+.qr-img{width:clamp(80px,10vw,110px);height:clamp(80px,10vw,110px);border-radius:8px;display:block;margin:0 auto}
 .camp-line{font-size:clamp(9px,1.1vw,12px);color:var(--text3)}
 
 /* PRINT */
@@ -200,7 +198,7 @@ html,body{height:auto!important;overflow:visible!important}
 <body>
 <button id="theme-btn" title="Toggle theme">☀️</button>
 <nav id="progress-nav"></nav>
-<button id="export-btn" onclick="window.print()">↓ Export PDF</button>
+<button id="export-btn" onclick="window.print()" title="Export PDF">↓</button>
 
 <div id="deck">
 
@@ -440,7 +438,7 @@ html,body{height:auto!important;overflow:visible!important}
 <p class="eyebrow">Jamaur Johnson</p>
 <p class="cta-tag">THE FUTURE ISN'T COMING.<br>YOU'RE BUILDING IT.</p>
 <p class="cta-url">jamaurjohnson.com</p>
-<div class="qr" id="qr"></div>
+<img class="qr-img" src="https://www.jamaurjohnson.com/_next/image?url=%2Fjamaur-johnson-qr.png&w=400&q=90" alt="Scan to connect with Jamaur Johnson">
 <p class="camp-line">Young Financial Leaders Camp · Wilmington DE · 2026</p>
 </section>
 
@@ -465,9 +463,6 @@ try{dark=localStorage.getItem('ptheme')!=='light'}catch(e){}
 applyTheme(dark);
 function applyTheme(d){dark=d;document.documentElement.setAttribute('data-theme',d?'dark':'light');tb.textContent=d?'☀️':'🌙';try{localStorage.setItem('ptheme',d?'dark':'light')}catch(e){}}
 tb.addEventListener('click',()=>applyTheme(!dark));
-
-// QR
-(function(){const q=document.getElementById('qr');const p=[1,1,1,0,1,1,1,0,1,0,0,0,1,1,1,0,1,1,1,0,1,0,0,0,1];p.forEach(v=>{const c=document.createElement('div');c.className='qrc'+(v?' on':'');q.appendChild(c)})})();
 
 // TERMINAL
 let termDone=false;
