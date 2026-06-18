@@ -1,1 +1,626 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIiBkYXRhLXRoZW1lPSJkYXJrIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9IlVURi04Ij4KPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAsIHZpZXdwb3J0LWZpdD1jb3ZlciI+Cjx0aXRsZT5Gcm9tIGFuIElkZWEgdG8gYSBCdXNpbmVzcyBpbiAyMDI2IOKAlCBKYW1hdXIgSm9obnNvbjwvdGl0bGU+CjxzdHlsZT4KOnJvb3R7LS1nb2xkOiNENEFGMzc7LS1lbWVyYWxkOiMzRkEzNEQ7LS1jb3JhbDojRTg1RDVEfQpbZGF0YS10aGVtZT0iZGFyayJdey0tYmc6IzA1MDUwNTstLWJnMjojMTExMTExOy0tYmczOiMxYTFhMWE7LS10ZXh0OiNGRkZGRkY7LS10ZXh0MjpyZ2JhKDI1NSwyNTUsMjU1LC43KTstLXRleHQzOnJnYmEoMjU1LDI1NSwyNTUsLjQpOy0tYm9yZGVyOnJnYmEoMjU1LDI1NSwyNTUsLjEyKTstLWNhcmQtYmc6cmdiYSgyNTUsMjU1LDI1NSwuMDYpOy0tY2FyZC1ib3JkZXI6cmdiYSgyNTUsMjU1LDI1NSwuMTQpfQpbZGF0YS10aGVtZT0ibGlnaHQiXXstLWJnOiNGNUY1RjA7LS1iZzI6I0VCRUJFQjstLWJnMzojRkZGRkZGOy0tdGV4dDojMEEwQTBBOy0tdGV4dDI6cmdiYSgwLDAsMCwuNjUpOy0tdGV4dDM6cmdiYSgwLDAsMCwuNCk7LS1ib3JkZXI6cmdiYSgwLDAsMCwuMTIpOy0tY2FyZC1iZzpyZ2JhKDAsMCwwLC4wNCk7LS1jYXJkLWJvcmRlcjpyZ2JhKDAsMCwwLC4xMil9CiosKjo6YmVmb3JlLCo6OmFmdGVye2JveC1zaXppbmc6Ym9yZGVyLWJveDttYXJnaW46MDtwYWRkaW5nOjB9Cmh0bWwsYm9keXtoZWlnaHQ6MTAwJTtvdmVyZmxvdzpoaWRkZW47Zm9udC1mYW1pbHk6LWFwcGxlLXN5c3RlbSxCbGlua01hY1N5c3RlbUZvbnQsJ1NGIFBybyBEaXNwbGF5JywnU2Vnb2UgVUknLHNhbnMtc2VyaWY7YmFja2dyb3VuZDp2YXIoLS1iZyk7Y29sb3I6dmFyKC0tdGV4dCk7dHJhbnNpdGlvbjpiYWNrZ3JvdW5kIC4zcyxjb2xvciAuM3N9CgovKiBERUNLICovCiNkZWNre2hlaWdodDoxMDBkdmg7b3ZlcmZsb3cteTpzY3JvbGw7b3ZlcmZsb3cteDpoaWRkZW47c2Nyb2xsLXNuYXAtdHlwZTp5IG1hbmRhdG9yeTstd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzp0b3VjaDtzY3JvbGxiYXItd2lkdGg6bm9uZTtwb3NpdGlvbjpyZWxhdGl2ZX0KI2RlY2s6Oi13ZWJraXQtc2Nyb2xsYmFye2Rpc3BsYXk6bm9uZX0KLnNsaWRle2hlaWdodDoxMDBkdmg7bWluLWhlaWdodDoxMDBkdmg7d2lkdGg6MTAwJTtzY3JvbGwtc25hcC1hbGlnbjpzdGFydDtzY3JvbGwtc25hcC1zdG9wOmFsd2F5cztkaXNwbGF5OmZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO2FsaWduLWl0ZW1zOmNlbnRlcjtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO3Bvc2l0aW9uOnJlbGF0aXZlO292ZXJmbG93OmhpZGRlbjtwYWRkaW5nOmNsYW1wKDEycHgsMi41dncsNDBweCkgY2xhbXAoMTZweCw0dncsNjBweCl9CgovKiBGSVhFRCBVSSAqLwojdGhlbWUtYnRue3Bvc2l0aW9uOmZpeGVkO3RvcDoxNnB4O3JpZ2h0OjE2cHg7ei1pbmRleDo5OTk5O2JhY2tncm91bmQ6dmFyKC0tY2FyZC1iZyk7Ym9yZGVyOjFweCBzb2xpZCB2YXIoLS1ib3JkZXIpO2JvcmRlci1yYWRpdXM6NTAlO3dpZHRoOjQycHg7aGVpZ2h0OjQycHg7Zm9udC1zaXplOjE5cHg7Y3Vyc29yOnBvaW50ZXI7ZGlzcGxheTpmbGV4O2FsaWduLWl0ZW1zOmNlbnRlcjtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO3RyYW5zaXRpb246YmFja2dyb3VuZCAuM3MsdHJhbnNmb3JtIC4ycztiYWNrZHJvcC1maWx0ZXI6Ymx1cigxMnB4KX0KI3RoZW1lLWJ0bjpob3Zlcnt0cmFuc2Zvcm06c2NhbGUoMS4xKX0KI2J0bi0zZHtwb3NpdGlvbjpmaXhlZDt0b3A6NjZweDtyaWdodDoxMHB4O3otaW5kZXg6OTk5OTtiYWNrZ3JvdW5kOnJnYmEoMCwwLDAsLjYpO2JvcmRlcjoxLjVweCBzb2xpZCByZ2JhKDI1NSwyNTUsMjU1LC4xOCk7Ym9yZGVyLXJhZGl1czoyMHB4O3BhZGRpbmc6NXB4IDExcHg7Zm9udC1zaXplOjEwcHg7Zm9udC13ZWlnaHQ6NzAwO2xldHRlci1zcGFjaW5nOi4wNmVtO2NvbG9yOnJnYmEoMjU1LDI1NSwyNTUsLjYpO2N1cnNvcjpwb2ludGVyO2Rpc3BsYXk6ZmxleDthbGlnbi1pdGVtczpjZW50ZXI7Z2FwOjRweDt0cmFuc2l0aW9uOmFsbCAuMnM7YmFja2Ryb3AtZmlsdGVyOmJsdXIoMTJweCk7dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlO2xpbmUtaGVpZ2h0OjF9CiNidG4tM2Q6aG92ZXJ7Ym9yZGVyLWNvbG9yOnZhcigtLWdvbGQpO2NvbG9yOnZhcigtLWdvbGQpO3RyYW5zZm9ybTpzY2FsZSgxLjA4KX0KI2J0bi0zZC5hY3RpdmV7Ym9yZGVyLWNvbG9yOnZhcigtLWdvbGQpO2JhY2tncm91bmQ6cmdiYSgyMTIsMTc1LDU1LC4xNSk7Y29sb3I6dmFyKC0tZ29sZCl9CiNwcm9ncmVzcy1uYXZ7cG9zaXRpb246Zml4ZWQ7cmlnaHQ6MTZweDt0b3A6NTAlO3RyYW5zZm9ybTp0cmFuc2xhdGVZKC01MCUpO3otaW5kZXg6OTk5ODtkaXNwbGF5OmZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO2dhcDo3cHh9Ci5kb3R7d2lkdGg6NnB4O2hlaWdodDo2cHg7Ym9yZGVyLXJhZGl1czo1MCU7YmFja2dyb3VuZDp2YXIoLS1ib3JkZXIpO2N1cnNvcjpwb2ludGVyO3RyYW5zaXRpb246YWxsIC4zcztib3JkZXI6bm9uZTtwYWRkaW5nOjB9Ci5kb3QuYWN0aXZle2JhY2tncm91bmQ6dmFyKC0tZ29sZCk7dHJhbnNmb3JtOnNjYWxlKDEuNil9CiNleHBvcnQtYnRue3Bvc2l0aW9uOmZpeGVkO2JvdHRvbToyMHB4O2xlZnQ6MTZweDt6LWluZGV4Ojk5OTc7YmFja2dyb3VuZDp2YXIoLS1jYXJkLWJnKTtib3JkZXI6MXB4IHNvbGlkIHZhcigtLWJvcmRlcik7Y29sb3I6dmFyKC0tdGV4dDMpO2JvcmRlci1yYWRpdXM6NTAlO3dpZHRoOjMwcHg7aGVpZ2h0OjMwcHg7Zm9udC1zaXplOjEzcHg7Y3Vyc29yOnBvaW50ZXI7dHJhbnNpdGlvbjphbGwgLjJzO2Rpc3BsYXk6ZmxleDthbGlnbi1pdGVtczpjZW50ZXI7anVzdGlmeS1jb250ZW50OmNlbnRlcjtiYWNrZHJvcC1maWx0ZXI6Ymx1cigxMHB4KX0KI2V4cG9ydC1idG46aG92ZXJ7Ym9yZGVyLWNvbG9yOnZhcigtLWdvbGQpO2NvbG9yOnZhcigtLWdvbGQpfQoKLyogM0QgTkFWIEFSUk9XUyAqLwojcHJldi1idG4sI25leHQtYnRue3Bvc2l0aW9uOmZpeGVkO3RvcDo1MCU7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoLTUwJSk7ei1pbmRleDo5OTk3O2JhY2tncm91bmQ6dmFyKC0tY2FyZC1iZyk7Ym9yZGVyOjFweCBzb2xpZCB2YXIoLS1ib3JkZXIpO2NvbG9yOnZhcigtLXRleHQpO2JvcmRlci1yYWRpdXM6NTAlO3dpZHRoOjUycHg7aGVpZ2h0OjUycHg7Zm9udC1zaXplOjIycHg7Y3Vyc29yOnBvaW50ZXI7ZGlzcGxheTpub25lO2FsaWduLWl0ZW1zOmNlbnRlcjtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO2JhY2tkcm9wLWZpbHRlcjpibHVyKDEycHgpO3RyYW5zaXRpb246YWxsIC4yc30KI3ByZXYtYnRue2xlZnQ6MTZweH0KI25leHQtYnRue3JpZ2h0OjYwcHh9CiNwcmV2LWJ0bjpob3ZlciwjbmV4dC1idG46aG92ZXJ7Ym9yZGVyLWNvbG9yOnZhcigtLWdvbGQpO2NvbG9yOnZhcigtLWdvbGQpO3RyYW5zZm9ybTp0cmFuc2xhdGVZKC01MCUpIHNjYWxlKDEuMDgpfQoKLyogM0QgTU9ERSAqLwpib2R5Lm1vZGUtM2QgI2RlY2t7b3ZlcmZsb3c6aGlkZGVuO3Njcm9sbC1zbmFwLXR5cGU6bm9uZX0KYm9keS5tb2RlLTNkIC5zbGlkZXtwb3NpdGlvbjphYnNvbHV0ZTt0b3A6MDtsZWZ0OjA7cmlnaHQ6MDtib3R0b206MDttaW4taGVpZ2h0OnVuc2V0O3Njcm9sbC1zbmFwLWFsaWduOnVuc2V0O3Njcm9sbC1zbmFwLXN0b3A6dW5zZXQ7dHJhbnNpdGlvbjp0cmFuc2Zvcm0gLjY1cyBjdWJpYy1iZXppZXIoLjQsMCwuMiwxKSxvcGFjaXR5IC41NXM7d2lsbC1jaGFuZ2U6dHJhbnNmb3JtLG9wYWNpdHk7YmFja2ZhY2UtdmlzaWJpbGl0eTpoaWRkZW59CmJvZHkubW9kZS0zZCAuc2xpZGVbZGF0YS1zdGF0ZT0iYWN0aXZlIl17dHJhbnNmb3JtOnBlcnNwZWN0aXZlKDE0MDBweCkgdHJhbnNsYXRlWCgwKSByb3RhdGVZKDBkZWcpIHNjYWxlKDEpO29wYWNpdHk6MTt6LWluZGV4OjI7cG9pbnRlci1ldmVudHM6YXV0b30KYm9keS5tb2RlLTNkIC5zbGlkZVtkYXRhLXN0YXRlPSJuZXh0Il17dHJhbnNmb3JtOnBlcnNwZWN0aXZlKDE0MDBweCkgdHJhbnNsYXRlWCgxMDUlKSByb3RhdGVZKC0yNWRlZykgc2NhbGUoLjkpO29wYWNpdHk6MDt6LWluZGV4OjE7cG9pbnRlci1ldmVudHM6bm9uZX0KYm9keS5tb2RlLTNkIC5zbGlkZVtkYXRhLXN0YXRlPSJwcmV2Il17dHJhbnNmb3JtOnBlcnNwZWN0aXZlKDE0MDBweCkgdHJhbnNsYXRlWCgtMTA1JSkgcm90YXRlWSgyNWRlZykgc2NhbGUoLjkpO29wYWNpdHk6MDt6LWluZGV4OjE7cG9pbnRlci1ldmVudHM6bm9uZX0KCkBtZWRpYShtYXgtd2lkdGg6NjAwcHgpeyNwcm9ncmVzcy1uYXZ7cmlnaHQ6NnB4fX0KCi8qIFRZUE9HUkFQSFkgKi8KLmV5ZWJyb3d7Zm9udC1zaXplOmNsYW1wKDlweCwxLjN2dywxMnB4KTtsZXR0ZXItc3BhY2luZzouMmVtO2ZvbnQtd2VpZ2h0OjcwMDtjb2xvcjp2YXIoLS1nb2xkKTt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7bWFyZ2luLWJvdHRvbTpjbGFtcCg2cHgsMS4ydmgsMTRweCl9Ci5oMXtmb250LXNpemU6Y2xhbXAoMjhweCw2dncsODJweCk7Zm9udC13ZWlnaHQ6ODAwO2xpbmUtaGVpZ2h0OjEuMDQ7bGV0dGVyLXNwYWNpbmc6LS4wMmVtO2NvbG9yOnZhcigtLXRleHQpfQouaDJ7Zm9udC1zaXplOmNsYW1wKDIycHgsNHZ3LDUycHgpO2ZvbnQtd2VpZ2h0OjcwMDtsaW5lLWhlaWdodDoxLjA4O2xldHRlci1zcGFjaW5nOi0uMDFlbTtjb2xvcjp2YXIoLS10ZXh0KX0KLmJvZHl7Zm9udC1zaXplOmNsYW1wKDEzcHgsMS42dncsMThweCk7bGluZS1oZWlnaHQ6MS42O2NvbG9yOnZhcigtLXRleHQyKX0KLmdvbGR7Y29sb3I6dmFyKC0tZ29sZCl9LmVtZXJhbGR7Y29sb3I6dmFyKC0tZW1lcmFsZCl9LmNvcmFse2NvbG9yOnZhcigtLWNvcmFsKX0uY2VudGVye3RleHQtYWxpZ246Y2VudGVyfQoKLyogT1JCUyAqLwouYmctb3Jie3Bvc2l0aW9uOmFic29sdXRlO2JvcmRlci1yYWRpdXM6NTAlO2ZpbHRlcjpibHVyKDgwcHgpO29wYWNpdHk6LjE1O3BvaW50ZXItZXZlbnRzOm5vbmU7YW5pbWF0aW9uOmZsb2F0IDhzIGVhc2UtaW4tb3V0IGluZmluaXRlfQpAa2V5ZnJhbWVzIGZsb2F0ezAlLDEwMCV7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoMCl9NTAle3RyYW5zZm9ybTp0cmFuc2xhdGVZKC0yOHB4KX19Ci5zbGlkZT4qOm5vdCguYmctb3JiKTpub3QoI3ByZXYtYnRuKTpub3QoI25leHQtYnRuKXtwb3NpdGlvbjpyZWxhdGl2ZTt6LWluZGV4OjF9CgovKiBDQVJEUyAqLwouY2FyZHtiYWNrZ3JvdW5kOnZhcigtLWNhcmQtYmcpO2JvcmRlcjoxcHggc29saWQgdmFyKC0tY2FyZC1ib3JkZXIpO2JvcmRlci1yYWRpdXM6MTRweDtwYWRkaW5nOmNsYW1wKDEwcHgsMS44dmgsMjJweCkgY2xhbXAoMTRweCwyLjJ2dywyOHB4KX0KLnBpbGx7ZGlzcGxheTppbmxpbmUtZmxleDthbGlnbi1pdGVtczpjZW50ZXI7Z2FwOjZweDtiYWNrZ3JvdW5kOnZhcigtLWNhcmQtYmcpO2JvcmRlcjoxcHggc29saWQgdmFyKC0tY2FyZC1ib3JkZXIpO2JvcmRlci1yYWRpdXM6MTAwcHg7cGFkZGluZzo4cHggMTZweDtmb250LXNpemU6Y2xhbXAoMTJweCwxLjR2dywxNXB4KTtmb250LXdlaWdodDo1MDA7Y29sb3I6dmFyKC0tdGV4dCl9CgovKiBIRVJPICovCiNzMXt0ZXh0LWFsaWduOmNlbnRlcn0KLmhlcm8tYmFkZ2V7ZGlzcGxheTppbmxpbmUtYmxvY2s7Ym9yZGVyOjFweCBzb2xpZCByZ2JhKDIxMiwxNzUsNTUsLjQpO2JvcmRlci1yYWRpdXM6MTAwcHg7cGFkZGluZzo1cHggMThweDtmb250LXNpemU6Y2xhbXAoOXB4LDEuMXZ3LDExcHgpO2xldHRlci1zcGFjaW5nOi4xNmVtO2NvbG9yOnZhcigtLWdvbGQpO21hcmdpbi1ib3R0b206Y2xhbXAoMTJweCwyLjV2aCwyOHB4KX0KLmhlcm8tdGl0bGV7Zm9udC1zaXplOmNsYW1wKDM0cHgsOHZ3LDEwMHB4KTtmb250LXdlaWdodDo5MDA7bGluZS1oZWlnaHQ6MS4wO2xldHRlci1zcGFjaW5nOi0uMDNlbTttYXJnaW4tYm90dG9tOmNsYW1wKDEwcHgsMnZoLDIycHgpfQouaGVyby1zdWJ7Zm9udC1zaXplOmNsYW1wKDEzcHgsMS44dncsMjBweCk7Y29sb3I6dmFyKC0tdGV4dDIpO21heC13aWR0aDo1NjBweDttYXJnaW46MCBhdXRvIGNsYW1wKDE0cHgsMi41dmgsMzBweCl9Ci5oZXJvLWJ5bGluZXtmb250LXNpemU6Y2xhbXAoMTBweCwxLjJ2dywxM3B4KTtsZXR0ZXItc3BhY2luZzouMTZlbTtjb2xvcjp2YXIoLS10ZXh0Myk7dGV4dC10cmFuc2Zvcm06dXBwZXJjYXNlfQouaGVyby1ieWxpbmUgc3Bhbntjb2xvcjp2YXIoLS1nb2xkKX0KLnNjcm9sbC1oaW50e3Bvc2l0aW9uOmFic29sdXRlO2JvdHRvbTpjbGFtcCgxNHB4LDIuNXZoLDI0cHgpO2xlZnQ6NTAlO3RyYW5zZm9ybTp0cmFuc2xhdGVYKC01MCUpO2ZvbnQtc2l6ZTpjbGFtcCg5cHgsMXZ3LDEwcHgpO2xldHRlci1zcGFjaW5nOi4xNmVtO2NvbG9yOnZhcigtLXRleHQzKTt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7ZGlzcGxheTpmbGV4O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbjthbGlnbi1pdGVtczpjZW50ZXI7Z2FwOjZweH0KLmFycm93LWRvd257d2lkdGg6MTZweDtoZWlnaHQ6MTZweDtib3JkZXItcmlnaHQ6MnB4IHNvbGlkIHZhcigtLXRleHQzKTtib3JkZXItYm90dG9tOjJweCBzb2xpZCB2YXIoLS10ZXh0Myk7dHJhbnNmb3JtOnJvdGF0ZSg0NWRlZyk7YW5pbWF0aW9uOmFiIC44cyBlYXNlLWluLW91dCBpbmZpbml0ZSBhbHRlcm5hdGV9CkBrZXlmcmFtZXMgYWJ7ZnJvbXt0cmFuc2Zvcm06cm90YXRlKDQ1ZGVnKSB0cmFuc2xhdGVZKC0ycHgpfXRve3RyYW5zZm9ybTpyb3RhdGUoNDVkZWcpIHRyYW5zbGF0ZVkoMnB4KX19CkBrZXlmcmFtZXMgcHVsc2UtcXswJSwxMDAle29wYWNpdHk6Ljk7dHJhbnNmb3JtOnNjYWxlKDEpfTUwJXtvcGFjaXR5Oi42O3RyYW5zZm9ybTpzY2FsZSguOTYpfX0KCi8qIEFWQVRBUiAqLwouYXZhdGFye3dpZHRoOmNsYW1wKDgwcHgsMTF2dywxMjBweCk7aGVpZ2h0OmNsYW1wKDgwcHgsMTF2dywxMjBweCk7Ym9yZGVyLXJhZGl1czo1MCU7Ym9yZGVyOjIuNXB4IHNvbGlkIHZhcigtLWdvbGQpO2JhY2tncm91bmQ6dmFyKC0tYmczKTtkaXNwbGF5OmZsZXg7YWxpZ24taXRlbXM6Y2VudGVyO2p1c3RpZnktY29udGVudDpjZW50ZXI7Zm9udC1zaXplOmNsYW1wKDMycHgsNC41dncsNTJweCk7b3ZlcmZsb3c6aGlkZGVuO2ZsZXgtc2hyaW5rOjB9Ci5hdmF0YXIgaW1ne3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7b2JqZWN0LWZpdDpjb3Zlcjtib3JkZXItcmFkaXVzOjUwJX0KCi8qIE1FRVQgU0xJREUgKi8KI3M0e2dhcDpjbGFtcCg2cHgsMS4ydmgsMTJweCl9Ci50aW1lbGluZXtkaXNwbGF5OmZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO2dhcDpjbGFtcCg1cHgsLjl2aCw5cHgpO3dpZHRoOjEwMCU7bWF4LXdpZHRoOjY4MHB4fQoudGx7ZGlzcGxheTpmbGV4O2FsaWduLWl0ZW1zOmZsZXgtc3RhcnQ7Z2FwOjEycHg7cGFkZGluZzpjbGFtcCg4cHgsMS4zdmgsMTNweCkgY2xhbXAoMTJweCwytncsM
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>From an Idea to a Business in 2026 — Jamaur Johnson</title>
+<style>
+:root{--gold:#D4AF37;--emerald:#3FA34D;--coral:#E85D5D}
+[data-theme="dark"]{--bg:#050505;--bg2:#111111;--bg3:#1a1a1a;--text:#FFFFFF;--text2:rgba(255,255,255,.7);--text3:rgba(255,255,255,.4);--border:rgba(255,255,255,.12);--card-bg:rgba(255,255,255,.06);--card-border:rgba(255,255,255,.14)}
+[data-theme="light"]{--bg:#F5F5F0;--bg2:#EBEBEB;--bg3:#FFFFFF;--text:#0A0A0A;--text2:rgba(0,0,0,.65);--text3:rgba(0,0,0,.4);--border:rgba(0,0,0,.12);--card-bg:rgba(0,0,0,.04);--card-border:rgba(0,0,0,.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s}
+
+/* DECK */
+#deck{height:100dvh;overflow-y:scroll;overflow-x:hidden;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:relative}
+#deck::-webkit-scrollbar{display:none}
+.slide{height:100dvh;min-height:100dvh;width:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:clamp(12px,2.5vw,40px) clamp(16px,4vw,60px)}
+
+/* FIXED UI */
+#theme-btn{position:fixed;top:16px;right:16px;z-index:9999;background:var(--card-bg);border:1px solid var(--border);border-radius:50%;width:42px;height:42px;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,transform .2s;backdrop-filter:blur(12px)}
+#theme-btn:hover{transform:scale(1.1)}
+#btn-3d{position:fixed;top:66px;right:10px;z-index:9999;background:rgba(0,0,0,.6);border:1.5px solid rgba(255,255,255,.18);border-radius:20px;padding:5px 11px;font-size:10px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.6);cursor:pointer;display:flex;align-items:center;gap:4px;transition:all .2s;backdrop-filter:blur(12px);text-transform:uppercase;line-height:1}
+#btn-3d:hover{border-color:var(--gold);color:var(--gold);transform:scale(1.08)}
+#btn-3d.active{border-color:var(--gold);background:rgba(212,175,55,.15);color:var(--gold)}
+#progress-nav{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:9998;display:flex;flex-direction:column;gap:7px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s;border:none;padding:0}
+.dot.active{background:var(--gold);transform:scale(1.6)}
+#export-btn{position:fixed;bottom:20px;left:16px;z-index:9997;background:var(--card-bg);border:1px solid var(--border);color:var(--text3);border-radius:50%;width:30px;height:30px;font-size:13px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+#export-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* 3D NAV ARROWS */
+#prev-btn,#next-btn{position:fixed;top:50%;transform:translateY(-50%);z-index:9997;background:var(--card-bg);border:1px solid var(--border);color:var(--text);border-radius:50%;width:52px;height:52px;font-size:22px;cursor:pointer;display:none;align-items:center;justify-content:center;backdrop-filter:blur(12px);transition:all .2s}
+#prev-btn{left:16px}
+#next-btn{right:60px}
+#prev-btn:hover,#next-btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-50%) scale(1.08)}
+
+/* 3D MODE */
+body.mode-3d #deck{overflow:hidden;scroll-snap-type:none}
+body.mode-3d .slide{position:absolute;top:0;left:0;right:0;bottom:0;min-height:unset;scroll-snap-align:unset;scroll-snap-stop:unset;transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .55s;will-change:transform,opacity;backface-visibility:hidden}
+body.mode-3d .slide[data-state="active"]{transform:perspective(1400px) translateX(0) rotateY(0deg) scale(1);opacity:1;z-index:2;pointer-events:auto}
+body.mode-3d .slide[data-state="next"]{transform:perspective(1400px) translateX(105%) rotateY(-25deg) scale(.9);opacity:0;z-index:1;pointer-events:none}
+body.mode-3d .slide[data-state="prev"]{transform:perspective(1400px) translateX(-105%) rotateY(25deg) scale(.9);opacity:0;z-index:1;pointer-events:none}
+
+@media(max-width:600px){#progress-nav{right:6px}}
+
+/* TYPOGRAPHY */
+.eyebrow{font-size:clamp(9px,1.3vw,12px);letter-spacing:.2em;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:clamp(6px,1.2vh,14px)}
+.h1{font-size:clamp(28px,6vw,82px);font-weight:800;line-height:1.04;letter-spacing:-.02em;color:var(--text)}
+.h2{font-size:clamp(22px,4vw,52px);font-weight:700;line-height:1.08;letter-spacing:-.01em;color:var(--text)}
+.body{font-size:clamp(13px,1.6vw,18px);line-height:1.6;color:var(--text2)}
+.gold{color:var(--gold)}.emerald{color:var(--emerald)}.coral{color:var(--coral)}.center{text-align:center}
+
+/* ORBS */
+.bg-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;pointer-events:none;animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
+.slide>*:not(.bg-orb):not(#prev-btn):not(#next-btn){position:relative;z-index:1}
+
+/* CARDS */
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:clamp(10px,1.8vh,22px) clamp(14px,2.2vw,28px)}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:100px;padding:8px 16px;font-size:clamp(12px,1.4vw,15px);font-weight:500;color:var(--text)}
+
+/* HERO */
+#s1{text-align:center}
+.hero-badge{display:inline-block;border:1px solid rgba(212,175,55,.4);border-radius:100px;padding:5px 18px;font-size:clamp(9px,1.1vw,11px);letter-spacing:.16em;color:var(--gold);margin-bottom:clamp(12px,2.5vh,28px)}
+.hero-title{font-size:clamp(34px,8vw,100px);font-weight:900;line-height:1.0;letter-spacing:-.03em;margin-bottom:clamp(10px,2vh,22px)}
+.hero-sub{font-size:clamp(13px,1.8vw,20px);color:var(--text2);max-width:560px;margin:0 auto clamp(14px,2.5vh,30px)}
+.hero-byline{font-size:clamp(10px,1.2vw,13px);letter-spacing:.16em;color:var(--text3);text-transform:uppercase}
+.hero-byline span{color:var(--gold)}
+.scroll-hint{position:absolute;bottom:clamp(14px,2.5vh,24px);left:50%;transform:translateX(-50%);font-size:clamp(9px,1vw,10px);letter-spacing:.16em;color:var(--text3);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px}
+.arrow-down{width:16px;height:16px;border-right:2px solid var(--text3);border-bottom:2px solid var(--text3);transform:rotate(45deg);animation:ab .8s ease-in-out infinite alternate}
+@keyframes ab{from{transform:rotate(45deg) translateY(-2px)}to{transform:rotate(45deg) translateY(2px)}}
+@keyframes pulse-q{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.6;transform:scale(.96)}}
+
+/* AVATAR */
+.avatar{width:clamp(80px,11vw,120px);height:clamp(80px,11vw,120px);border-radius:50%;border:2.5px solid var(--gold);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:clamp(32px,4.5vw,52px);overflow:hidden;flex-shrink:0}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+/* MEET SLIDE */
+#s4{gap:clamp(6px,1.2vh,12px)}
+.timeline{display:flex;flex-direction:column;gap:clamp(5px,.9vh,9px);width:100%;max-width:680px}
+.tl{display:flex;align-items:flex-start;gap:12px;padding:clamp(8px,1.3vh,13px) clamp(12px,2vw,20px);background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px}
+.tl-icon{font-size:clamp(17px,2.3vw,24px);flex-shrink:0}
+.tl-name{font-size:clamp(12px,1.5vw,15px);font-weight:700;color:var(--gold);margin-bottom:1px}
+.tl-desc{font-size:clamp(10px,1.2vw,13px);color:var(--text2)}
+
+/* BARBER */
+#s5{text-align:center}
+.barber-quote{font-size:clamp(14px,2.2vw,24px);font-style:italic;color:var(--text2);max-width:700px;line-height:1.55;margin:clamp(8px,1.5vh,16px) auto}
+.barber-quote em{color:var(--gold);font-style:normal;font-weight:700}
+.barber-sub{font-size:clamp(12px,1.5vw,16px);color:var(--text2);max-width:600px;margin:0 auto clamp(10px,1.6vh,16px)}
+.journey{display:flex;align-items:center;gap:clamp(8px,1.8vw,18px);flex-wrap:wrap;justify-content:center}
+.j-item{display:flex;flex-direction:column;align-items:center;gap:3px}
+.j-icon{font-size:clamp(22px,3.2vw,32px)}
+.j-label{font-size:clamp(9px,1.1vw,11px);letter-spacing:.1em;font-weight:700;color:var(--text3)}
+.j-arrow{font-size:clamp(14px,2vw,20px);color:var(--gold);align-self:center;margin-top:-10px}
+
+/* WHY IDEAS DIE */
+#s6{gap:clamp(8px,1.5vh,16px)}
+.excuse-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.8vw,18px);width:100%;max-width:900px}
+.exc{background:rgba(232,93,93,.09);border:1px solid rgba(232,93,93,.25);border-radius:14px;padding:clamp(12px,2vh,20px) clamp(14px,2.2vw,22px);display:flex;flex-direction:column;gap:5px}
+.exc-icon{font-size:clamp(20px,2.8vw,30px)}
+.exc-title{font-size:clamp(12px,1.6vw,17px);font-weight:700;color:var(--text)}
+.exc-desc{font-size:clamp(10px,1.2vw,13px);color:var(--text2)}
+.smash{font-size:clamp(14px,2.2vw,24px);font-weight:800;color:var(--emerald);letter-spacing:.04em;text-align:center}
+
+/* AI */
+#s7{text-align:center}
+.orb-vis{width:clamp(90px,13vw,140px);height:clamp(90px,13vw,140px);border-radius:50%;border:2px solid rgba(212,175,55,.4);position:relative;margin:clamp(6px,1.2vh,14px) auto;display:flex;align-items:center;justify-content:center;animation:spin-slow 12s linear infinite;flex-shrink:0}
+.orb-inner{width:65%;height:65%;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(212,175,55,.35),rgba(63,163,77,.2));border:1px solid rgba(212,175,55,.25);animation:spin-slow 8s linear infinite reverse}
+.orb-ring{position:absolute;inset:-14px;border-radius:50%;border:1px dashed rgba(212,175,55,.28)}
+@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.pills{display:flex;flex-wrap:wrap;gap:clamp(6px,1vw,10px);justify-content:center;max-width:780px}
+
+/* MAL'S */
+#s8{gap:clamp(6px,1.2vh,12px)}
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,2vw,28px);width:100%;max-width:900px;align-items:start}
+.ba-col{display:flex;flex-direction:column;gap:clamp(5px,.9vh,9px)}
+.ba-head{font-size:clamp(9px,1.1vw,11px);letter-spacing:.16em;font-weight:700;text-align:center;padding:4px 12px;border-radius:100px;align-self:center;margin-bottom:4px}
+.ba-head.b{color:var(--coral);background:rgba(232,93,93,.1);border:1px solid rgba(232,93,93,.28)}
+.ba-head.a{color:var(--emerald);background:rgba(63,163,77,.1);border:1px solid rgba(63,163,77,.28)}
+.ba-item{display:flex;align-items:center;gap:8px;font-size:clamp(11px,1.4vw,14px);color:var(--text2)}
+.ba-item .x{color:var(--coral);font-weight:700;font-size:clamp(12px,1.5vw,15px)}
+.ba-item .chk{color:var(--emerald);font-weight:700;font-size:clamp(12px,1.5vw,15px)}
+.ba-arrow{font-size:clamp(22px,3.2vw,36px);color:var(--gold);align-self:center;margin-top:22px}
+.stat{font-size:clamp(34px,5.5vw,64px);font-weight:900;color:var(--emerald);text-align:center;line-height:1;margin-top:6px}
+.stat-sub{font-size:clamp(10px,1.2vw,13px);color:var(--text2);text-align:center}
+@media(max-width:600px){.ba{grid-template-columns:1fr}.ba-arrow{transform:rotate(90deg)}}
+
+/* REAL ESTATE */
+#s9{gap:clamp(8px,1.5vh,14px)}
+.dre{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2vw,24px);width:100%;max-width:900px}
+.dre-col{display:flex;flex-direction:column;gap:clamp(6px,1vh,10px)}
+.dre-label{font-size:clamp(9px,1.1vw,11px);letter-spacing:.16em;font-weight:700;text-align:center;color:var(--gold);text-transform:uppercase;margin-bottom:4px;opacity:.9}
+.dre-item{display:flex;align-items:center;gap:10px;padding:clamp(9px,1.4vh,14px) clamp(12px,1.8vw,18px);background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;font-size:clamp(12px,1.5vw,16px);color:var(--text)}
+.dre-icon{font-size:clamp(18px,2.2vw,24px)}
+@media(max-width:600px){.dre{grid-template-columns:1fr}}
+
+/* BUILDER */
+#s10{gap:clamp(6px,1.2vh,12px)}
+.steps{display:flex;flex-direction:column;gap:clamp(5px,.9vh,9px);width:100%;max-width:760px}
+.step{display:flex;align-items:center;gap:clamp(12px,2vw,22px);padding:clamp(9px,1.4vh,15px) clamp(14px,2.2vw,24px);background:var(--card-bg);border:1px solid var(--card-border);border-radius:10px;transition:border-color .2s}
+.step:hover{border-color:var(--gold)}
+.step-num{font-size:clamp(18px,2.5vw,28px);font-weight:900;color:var(--gold);min-width:30px;line-height:1}
+.step-name{font-size:clamp(12px,1.5vw,16px);font-weight:700;color:var(--text);letter-spacing:.04em}
+.step-detail{font-size:clamp(10px,1.2vw,13px);color:var(--text2);margin-top:1px}
+
+/* LIE */
+#s11{text-align:center}
+.lie{font-size:clamp(18px,3vw,40px);font-weight:900;color:var(--coral);text-decoration:line-through;letter-spacing:.02em;margin:clamp(6px,1.2vh,14px) 0}
+.truth-intro{font-size:clamp(12px,1.5vw,16px);color:var(--text2);margin-bottom:clamp(12px,2vh,22px)}
+.truth-cards{display:flex;gap:clamp(12px,2.2vw,22px);justify-content:center;flex-wrap:wrap}
+.tc2{background:rgba(63,163,77,.08);border:1px solid rgba(63,163,77,.25);border-radius:16px;padding:clamp(16px,2.8vh,28px) clamp(24px,3.5vw,40px);display:flex;flex-direction:column;align-items:center;gap:8px;min-width:140px}
+.tc2-icon{font-size:clamp(28px,4vw,44px)}
+.tc2-label{font-size:clamp(11px,1.3vw,14px);font-weight:800;letter-spacing:.08em;color:var(--emerald)}
+
+/* GENERATION */
+#s12{gap:clamp(8px,1.5vh,14px)}
+.gen{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,2vw,24px);width:100%;max-width:900px}
+.gen-col{display:flex;flex-direction:column;gap:clamp(5px,.9vh,9px)}
+.gen-head{font-size:clamp(9px,1.1vw,11px);letter-spacing:.16em;font-weight:700;padding:4px 14px;border-radius:100px;text-align:center;align-self:center;margin-bottom:4px}
+.gen-head.b{color:var(--coral);background:rgba(232,93,93,.1);border:1px solid rgba(232,93,93,.28)}
+.gen-head.a{color:var(--emerald);background:rgba(63,163,77,.1);border:1px solid rgba(63,163,77,.28)}
+.gen-item{display:flex;align-items:center;gap:9px;padding:clamp(8px,1.2vh,12px) clamp(12px,1.8vw,16px);background:var(--card-bg);border:1px solid var(--card-border);border-radius:9px;font-size:clamp(11px,1.3vw,14px);color:var(--text2)}
+@media(max-width:600px){.gen{grid-template-columns:1fr}}
+
+/* DEMO */
+#s13{text-align:center;gap:clamp(8px,1.5vh,14px)}
+.terminal{background:#080808;border:1px solid rgba(255,255,255,.16);border-radius:12px;width:100%;max-width:720px;overflow:hidden;text-align:left}
+.term-bar{background:#1c1c1c;padding:9px 14px;display:flex;align-items:center;gap:7px}
+.td{width:12px;height:12px;border-radius:50%}
+.td:nth-child(1){background:#ff5f57}.td:nth-child(2){background:#ffbd2e}.td:nth-child(3){background:#28c840}
+.term-title{font-size:10px;color:rgba(255,255,255,.35);margin-left:8px;letter-spacing:.05em}
+.term-body{padding:clamp(12px,2vh,20px);font-family:'Courier New',monospace;min-height:clamp(120px,18vh,200px)}
+.term-prompt{color:#4ade80;font-size:clamp(11px,1.3vw,13px);margin-bottom:8px}
+.term-out{color:rgba(255,255,255,.85);font-size:clamp(10px,1.2vw,12px);line-height:1.6;white-space:pre-wrap}
+.cur{display:inline-block;width:8px;height:14px;background:#4ade80;animation:blink .8s step-end infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+
+/* DOORS */
+#s14{text-align:center;gap:clamp(8px,1.5vh,14px)}
+.doors{display:flex;gap:clamp(14px,3vw,40px);justify-content:center;flex-wrap:wrap;margin-top:clamp(8px,1.5vh,14px)}
+.door{flex:1;min-width:180px;max-width:300px;border-radius:18px;padding:clamp(18px,3vh,36px) clamp(18px,3vw,28px);display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.4vh,14px);text-align:center;transition:transform .2s}
+.door:hover{transform:translateY(-4px)}
+.door.con{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.door.bld{background:rgba(212,175,55,.07);border:2px solid var(--gold);animation:pg 2.5s ease-in-out infinite}
+@keyframes pg{0%,100%{box-shadow:0 0 28px rgba(212,175,55,.15)}50%{box-shadow:0 0 52px rgba(212,175,55,.4)}}
+.door-icon{font-size:clamp(36px,6vw,60px)}
+.door-title{font-size:clamp(14px,2vw,20px);font-weight:800;letter-spacing:.03em}
+.door-desc{font-size:clamp(11px,1.3vw,14px);color:var(--text2)}
+
+/* THREE THINGS */
+#s15{text-align:center;gap:clamp(8px,1.5vh,14px)}
+.three{display:flex;gap:clamp(12px,2.2vw,22px);justify-content:center;flex-wrap:wrap}
+.tc3{flex:1;min-width:190px;max-width:280px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:18px;padding:clamp(18px,2.8vh,28px) clamp(16px,2.2vw,24px);display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center}
+.tc3-num{width:clamp(34px,4.2vw,44px);height:clamp(34px,4.2vw,44px);border-radius:50%;background:var(--gold);color:#000;font-weight:900;font-size:clamp(14px,1.8vw,20px);display:flex;align-items:center;justify-content:center}
+.tc3-title{font-size:clamp(13px,1.6vw,17px);font-weight:700;color:var(--text)}
+.tc3-body{font-size:clamp(10px,1.2vw,13px);color:var(--text2)}
+
+/* CHALLENGE */
+#s16{text-align:center;gap:clamp(8px,1.5vh,14px)}
+.ch-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,20px);width:100%;max-width:660px}
+.ch{background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:clamp(14px,2.4vh,22px);display:flex;flex-direction:column;align-items:center;gap:6px;transition:border-color .2s}
+.ch:hover{border-color:var(--gold)}
+.ch-icon{font-size:clamp(24px,3.6vw,36px)}
+.ch-label{font-size:clamp(12px,1.5vw,16px);font-weight:700;color:var(--text)}
+.ch-sub{font-size:clamp(10px,1.1vw,12px);color:var(--text2)}
+
+/* CTA */
+#s17{text-align:center;gap:clamp(8px,1.5vh,12px)}
+.cta-tag{font-size:clamp(22px,4vw,56px);font-weight:900;letter-spacing:.02em;line-height:1.1;color:var(--gold);max-width:720px;margin:0 auto}
+.cta-url{font-size:clamp(14px,2vw,22px);color:var(--text2);letter-spacing:.04em}
+.qr-img{width:clamp(100px,13vw,140px);height:clamp(100px,13vw,140px);border-radius:8px;display:block;margin:0 auto;background:#fff;padding:6px;box-sizing:border-box}
+.camp-line{font-size:clamp(10px,1.2vw,13px);color:var(--text3)}
+
+/* PRINT / PDF - comprehensive fix */
+@media print{
+html,body{height:auto!important;overflow:visible!important}
+#deck{height:auto!important;overflow:visible!important;scroll-snap-type:none!important;position:static!important}
+#theme-btn,#btn-3d,#progress-nav,#export-btn,.bg-orb,.scroll-hint,#prev-btn,#next-btn{display:none!important}
+.slide{height:100vh!important;page-break-after:always!important;break-after:page!important;overflow:visible!important;background:#050505!important;position:relative!important;transform:none!important;opacity:1!important;pointer-events:auto!important}
+.slide, .slide *{color:#ffffff!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+.slide .gold,.slide .eyebrow,.slide .hero-badge,.slide .step-num,.slide .tc3-num,.slide .tl-name,.slide .ba-head.a,.slide .gen-head.a,.slide .dre-label,.slide .cta-tag,.slide .j-arrow,.slide .ba-arrow,.slide .hero-byline span{color:#D4AF37!important}
+.slide .emerald,.slide .smash,.slide .chk,.slide .tc2-label,.slide .stat{color:#3FA34D!important}
+.slide .coral,.slide .lie,.slide .x,.slide .ba-head.b,.slide .gen-head.b{color:#E85D5D!important}
+.slide .card,.slide .exc,.slide .tl,.slide .step,.slide .dre-item,.slide .gen-item,.slide .tc2,.slide .tc3,.slide .ch{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.15)!important}
+.slide .ba-head.b{background:rgba(232,93,93,.15)!important;border-color:rgba(232,93,93,.3)!important}
+.slide .ba-head.a{background:rgba(63,163,77,.15)!important;border-color:rgba(63,163,77,.3)!important}
+.slide .terminal{background:#080808!important}
+.slide .tc3-num{background:#D4AF37!important;color:#000!important}
+@page{size:landscape;margin:0}
+}
+
+/* ===== LANDSCAPE MOBILE FIX ===== */
+@media (orientation:landscape) and (max-height:580px){
+  #deck{scroll-snap-type:y proximity}
+  .slide{
+    height:auto;
+    min-height:100dvh;
+    overflow-y:visible;
+    overflow-x:hidden;
+    justify-content:flex-start;
+    padding:52px clamp(14px,3vw,50px) 20px;
+    gap:clamp(4px,1vh,12px)
+  }
+  body.mode-3d .slide{
+    position:absolute;top:0;left:0;right:0;
+    min-height:100dvh;overflow-y:auto
+  }
+  /* Avatars */
+  .avatar{width:70px!important;height:70px!important;font-size:24px!important}
+  #closing-avatar{width:78px!important;height:78px!important;margin-bottom:3px!important}
+  /* QR */
+  .qr-img{width:82px!important;height:82px!important}
+  /* Headlines */
+  .hero-title{font-size:clamp(20px,5vw,44px)!important;margin-bottom:6px!important}
+  .section-title,.smash{font-size:clamp(18px,4vw,36px)!important}
+  /* CTA closing slide */
+  .cta-tag{font-size:clamp(14px,3.5vw,26px)!important;margin:4px 0!important;line-height:1.2!important}
+  .cta-url{font-size:11px!important;margin:3px 0 5px!important}
+  .camp-line{font-size:10px!important;margin-top:5px!important;opacity:.75}
+  /* Eyebrows & badges */
+  .eyebrow{font-size:10px!important;margin-bottom:2px!important;letter-spacing:.08em!important}
+  .hero-badge{font-size:10px!important;padding:3px 9px!important;margin-bottom:4px!important}
+  /* Step cards (Builder Framework) */
+  .step{padding:4px 10px!important;min-height:unset!important}
+  .step-num{width:26px!important;height:26px!important;min-width:26px!important;font-size:12px!important}
+  /* Timeline cards (Meet Jamaur) */
+  .tl{padding:4px 10px!important}
+  .tl-name{font-size:12px!important}
+  /* Cards */
+  .card,.exc,.ch{padding:clamp(8px,1.5vh,14px) clamp(10px,2vw,18px)!important}
+  /* Progress dots: shrink */
+  #progress-nav{gap:4px!important}
+  .dot{width:6px!important;height:6px!important}
+  /* Scroll hint arrow */
+  .scroll-hint{bottom:6px!important}
+  /* Prev/next buttons */
+  #prev-btn,#next-btn{width:40px!important;height:40px!important;font-size:16px!important}
+}
+</style>
+</head>
+<body>
+<button id="theme-btn" title="Toggle theme">☀️</button>
+<button id="btn-3d" title="Switch to 3D Mode">↕ SCROLL</button>
+<nav id="progress-nav"></nav>
+<button id="export-btn" onclick="window.print()" title="Export PDF">↓</button>
+<button id="prev-btn" title="Previous">‹</button>
+<button id="next-btn" title="Next">›</button>
+
+<div id="deck">
+
+<section class="slide" id="s1" data-label="Intro">
+<div class="bg-orb" style="width:600px;height:600px;background:var(--gold);top:-120px;left:-120px;animation-delay:0s"></div>
+<div class="bg-orb" style="width:500px;height:500px;background:var(--emerald);bottom:-120px;right:-120px;animation-delay:-4s"></div>
+<div class="hero-badge">✦ YOUNG FINANCIAL LEADERS CAMP 2026 · WILMINGTON DE</div>
+<h1 class="hero-title">From an Idea<br>to a <span class="gold">Business</span><br>in <span class="emerald">2026</span></h1>
+<p class="hero-sub">How AI Helps Regular People Build Digital Real Estate</p>
+<p class="hero-byline">A Keynote by <span>JAMAUR JOHNSON</span></p>
+<div class="scroll-hint"><span>SCROLL TO BEGIN</span><div class="arrow-down"></div></div>
+</section>
+
+<section class="slide" id="s2" data-label="Questions">
+<div class="bg-orb" style="width:800px;height:800px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.07;animation-delay:-2s"></div>
+<p class="eyebrow" style="margin-bottom:clamp(14px,2.5vh,28px)">Before We Get Started</p>
+<div style="font-size:clamp(140px,26vw,300px);font-weight:900;line-height:1;color:var(--gold);opacity:.9;letter-spacing:-.04em;animation:pulse-q 2.4s ease-in-out infinite">?</div>
+<p style="font-size:clamp(13px,1.8vw,20px);color:var(--text2);margin-top:clamp(10px,2vh,20px);letter-spacing:.07em;text-transform:uppercase">Let me ask you all something</p>
+</section>
+
+<section class="slide" id="s3" data-label="Dreamers vs Builders">
+<div class="bg-orb" style="width:700px;height:700px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.1;animation-delay:-1s"></div>
+<p style="font-size:clamp(26px,5.2vw,72px);font-weight:900;line-height:1.12;letter-spacing:-.02em;color:var(--gold);max-width:860px;text-align:center">The difference between<br>dreamers and builders<br><span style="color:var(--text)">has never been</span><br><span style="color:var(--emerald)">smaller than it is right now.</span></p>
+</section>
+
+<section class="slide" id="s4" data-label="Meet Jamaur">
+<p class="eyebrow">The Speaker</p>
+<h2 class="h2">Meet <span class="gold">Jamaur Johnson</span></h2>
+<div class="avatar" id="profile-avatar"><img src="photo.jpg" alt="Jamaur Johnson" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%"></div>
+<div class="timeline">
+<div class="tl"><span class="tl-icon">🏆</span><div><div class="tl-name">The Athlete</div><div class="tl-desc">Learned discipline, teamwork, and what it means to commit to something bigger than yourself.</div></div></div>
+<div class="tl"><span class="tl-icon">💼</span><div><div class="tl-name">The Entrepreneur</div><div class="tl-desc">Started building businesses from the ground up — figuring it out without a manual.</div></div></div>
+<div class="tl"><span class="tl-icon">📈</span><div><div class="tl-name">The Trader</div><div class="tl-desc">Learned the markets, built discipline around risk, and created multiple trading businesses.</div></div></div>
+<div class="tl"><span class="tl-icon">🤖</span><div><div class="tl-name">The AI Architect</div><div class="tl-desc">Discovered AI was the great equalizer — the tool that changed everything.</div></div></div>
+<div class="tl"><span class="tl-icon">🏗️</span><div><div class="tl-name">The Builder</div><div class="tl-desc">Now building digital empires and teaching others to do the same.</div></div></div>
+</div>
+</section>
+
+<section class="slide" id="s5" data-label="The Story">
+<div class="bg-orb" style="width:500px;height:500px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.1"></div>
+<p class="eyebrow">The Origin Story</p>
+<div style="font-size:clamp(44px,6vw,72px);margin:4px 0">✂️</div>
+<p class="barber-quote">&ldquo;I was in the chair — Mal, my barber, was cutting my hair — when he said: <em>&lsquo;I got a seafood spot, Mal&rsquo;s Famous, but I need a real website and a system. I don&rsquo;t know where to start.&rsquo;</em>&rdquo;</p>
+<p class="barber-sub">Right there in the barbershop, we started building it together using AI. He already had the idea, the food, and the customers — he just needed the digital side. That one conversation became a case study.</p>
+<div class="journey">
+<div class="j-item"><span class="j-icon">💡</span><span class="j-label">Idea</span></div>
+<span class="j-arrow">→</span>
+<div class="j-item"><span class="j-icon">🔍</span><span class="j-label">Research</span></div>
+<span class="j-arrow">→</span>
+<div class="j-item"><span class="j-icon">🏗️</span><span class="j-label">Build</span></div>
+<span class="j-arrow">→</span>
+<div class="j-item"><span class="j-icon">🚀</span><span class="j-label">Launch</span></div>
+</div>
+</section>
+
+<section class="slide" id="s6" data-label="Why Ideas Die">
+<p class="eyebrow">The Problem</p>
+<h2 class="h2">Why Most <span class="coral">Ideas Die</span></h2>
+<div class="excuse-grid">
+<div class="exc"><span class="exc-icon">💸</span><div class="exc-title">&ldquo;I Don&rsquo;t Have Money&rdquo;</div><div class="exc-desc">No startup capital, no investors, no savings to risk.</div></div>
+<div class="exc"><span class="exc-icon">👥</span><div class="exc-title">&ldquo;I Don&rsquo;t Have Help&rdquo;</div><div class="exc-desc">No team, no co-founder, no experts around me.</div></div>
+<div class="exc"><span class="exc-icon">⏰</span><div class="exc-title">&ldquo;I Don&rsquo;t Have Time&rdquo;</div><div class="exc-desc">School, work, life — there&rsquo;s never enough hours.</div></div>
+<div class="exc"><span class="exc-icon">🗺️</span><div class="exc-title">&ldquo;I Don&rsquo;t Know Where to Start&rdquo;</div><div class="exc-desc">No roadmap, no mentor, no blueprint to follow.</div></div>
+</div>
+<div class="smash">THESE ARE NO LONGER EXCUSES. ✓</div>
+</section>
+
+<section class="slide" id="s7" data-label="AI Superpower">
+<div class="bg-orb" style="width:650px;height:650px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+<p class="eyebrow">The Shift</p>
+<h2 class="h2 center">AI Is Your New <span class="gold">Superpower</span></h2>
+<p class="body center" style="max-width:560px;margin:6px auto 8px">You now have a 24/7 team of experts in your pocket. Every role a startup needs — you have access to all of them.</p>
+<div class="orb-vis"><div class="orb-ring"></div><div class="orb-inner"></div></div>
+<div class="pills">
+<span class="pill">🎨 Designer</span><span class="pill">💻 Developer</span><span class="pill">📣 Marketer</span><span class="pill">🔬 Researcher</span><span class="pill">🎓 Coach</span><span class="pill">✍️ Copywriter</span><span class="pill">📊 Analyst</span><span class="pill">⚖️ Advisor</span>
+</div>
+</section>
+
+<section class="slide" id="s8" data-label="Mal's Famous">
+<p class="eyebrow">Case Study</p>
+<h2 class="h2"><span class="gold">Mal&rsquo;s Famous</span> Seafood Grill</h2>
+<p class="body center" style="max-width:540px;margin:3px auto 6px">We built the entire digital side of his business — right there in the barbershop conversation.</p>
+<div class="ba">
+<div class="ba-col">
+<span class="ba-head b">BEFORE</span>
+<div class="ba-item"><span class="x">✕</span> Walk-in customers only</div>
+<div class="ba-item"><span class="x">✕</span> Word of mouth only</div>
+<div class="ba-item"><span class="x">✕</span> No website, no social</div>
+<div class="ba-item"><span class="x">✕</span> Revenue capped locally</div>
+<div class="ba-item"><span class="x">✕</span> No email list, no loyalty</div>
+</div>
+<div class="ba-arrow">→</div>
+<div class="ba-col">
+<span class="ba-head a">AFTER AI</span>
+<div class="ba-item"><span class="chk">✓</span> Website + online ordering</div>
+<div class="ba-item"><span class="chk">✓</span> Social media presence</div>
+<div class="ba-item"><span class="chk">✓</span> Email list of 2,000+ regulars</div>
+<div class="ba-item"><span class="chk">✓</span> Google Business profile</div>
+<div class="ba-item"><span class="chk">✓</span> Recurring revenue streams</div>
+<div style="margin-top:8px"><div class="stat">3×</div><div class="stat-sub">Revenue growth in 6 months</div></div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s9" data-label="Digital Real Estate">
+<p class="eyebrow">The Concept</p>
+<h2 class="h2 center">What Is <span class="gold">Digital Real Estate?</span></h2>
+<p class="body center" style="max-width:560px;margin:5px auto 10px">Just like physical real estate holds value — digital properties do too. And you can own them.</p>
+<div class="dre">
+<div class="dre-col">
+<div class="dre-label">Physical Real Estate</div>
+<div class="dre-item"><span class="dre-icon">🏠</span> A House</div>
+<div class="dre-item"><span class="dre-icon">🏢</span> A Commercial Building</div>
+<div class="dre-item"><span class="dre-icon">🌳</span> Land</div>
+<div class="dre-item"><span class="dre-icon">🏪</span> A Storefront</div>
+</div>
+<div class="dre-col">
+<div class="dre-label">Digital Real Estate</div>
+<div class="dre-item"><span class="dre-icon">🌐</span> A Website</div>
+<div class="dre-item"><span class="dre-icon">📱</span> Social Media Accounts</div>
+<div class="dre-item"><span class="dre-icon">🎬</span> Content Library</div>
+<div class="dre-item"><span class="dre-icon">📧</span> Email Community</div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s10" data-label="Builder Framework">
+<p class="eyebrow">The Method</p>
+<h2 class="h2">The <span class="gold">Builder Framework</span></h2>
+<div class="steps">
+<div class="step"><span class="step-num">1</span><div><div class="step-name">IDEA 💡</div><div class="step-detail">Every empire starts with a single thought. Write it down.</div></div></div>
+<div class="step"><span class="step-num">2</span><div><div class="step-name">RESEARCH 🔍</div><div class="step-detail">Ask AI to validate it. Search the market. Know your customer.</div></div></div>
+<div class="step"><span class="step-num">3</span><div><div class="step-name">BUILD 🏗️</div><div class="step-detail">Use AI tools to create your product, site, or service. Fast.</div></div></div>
+<div class="step"><span class="step-num">4</span><div><div class="step-name">TEST 🧪</div><div class="step-detail">Get it in front of real people. Feedback is your best friend.</div></div></div>
+<div class="step"><span class="step-num">5</span><div><div class="step-name">IMPROVE ⚡</div><div class="step-detail">Iterate on what works. Kill what doesn&rsquo;t.</div></div></div>
+<div class="step" style="border-color:rgba(212,175,55,.35)"><span class="step-num">6</span><div><div class="step-name">SCALE 🚀</div><div class="step-detail">Double down on what&rsquo;s working. Let AI multiply your output.</div></div></div>
+</div>
+</section>
+
+<section class="slide" id="s11" data-label="The Biggest Lie">
+<p class="eyebrow">The Myth</p>
+<h2 class="h2">The <span class="coral">Biggest Lie</span></h2>
+<p class="lie">&ldquo;YOU NEED MONEY TO START&rdquo;</p>
+<p class="truth-intro">What you actually need are three things money can&rsquo;t buy:</p>
+<div class="truth-cards">
+<div class="tc2"><span class="tc2-icon">🔮</span><span class="tc2-label">CURIOSITY</span></div>
+<div class="tc2"><span class="tc2-icon">🔁</span><span class="tc2-label">CONSISTENCY</span></div>
+<div class="tc2"><span class="tc2-icon">🎨</span><span class="tc2-label">CREATIVITY</span></div>
+</div>
+</section>
+
+<section class="slide" id="s12" data-label="My Generation">
+<p class="eyebrow">The Contrast</p>
+<h2 class="h2">My Generation <span class="gold">Didn&rsquo;t Have This</span></h2>
+<div class="gen">
+<div class="gen-col">
+<span class="gen-head b">BEFORE AI</span>
+<div class="gen-item">💰 Needed $10K+ to start a business</div>
+<div class="gen-item">👨‍💻 Had to hire developers ($$$)</div>
+<div class="gen-item">🎓 Needed to know everything first</div>
+<div class="gen-item">📺 Marketing required big budgets</div>
+<div class="gen-item">😴 Alone with your ideas at 2am</div>
+</div>
+<div class="gen-col">
+<span class="gen-head a">✨ WITH AI (YOUR ADVANTAGE)</span>
+<div class="gen-item">🆓 Start with $0 using free tools</div>
+<div class="gen-item">🤖 AI builds for you — right now</div>
+<div class="gen-item">🧠 Learn anything in minutes</div>
+<div class="gen-item">📣 Organic content does the selling</div>
+<div class="gen-item">⭐ 24/7 AI team in your pocket</div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s13" data-label="Live Demo">
+<p class="eyebrow">Live Demo</p>
+<h2 class="h2 center">Watch AI <span class="gold">Build a Business</span></h2>
+<p class="body center" style="max-width:500px;margin:5px auto 10px">Type one sentence. Watch what comes out.</p>
+<div class="terminal">
+<div class="term-bar"><div class="td"></div><div class="td"></div><div class="td"></div><span class="term-title">ChatGPT — Build My Business</span></div>
+<div class="term-body">
+<div class="term-prompt">$ You: Build me a dog walking business</div>
+<div class="term-out" id="term-out"></div>
+<span class="cur" id="cur"></span>
+</div>
+</div>
+<p class="body center" style="margin-top:10px;font-size:clamp(11px,1.3vw,14px)">↑ This is what happens when you stop waiting and start building.</p>
+</section>
+
+<section class="slide" id="s14" data-label="Two Doors">
+<p class="eyebrow">The Choice</p>
+<h2 class="h2 center">Future Belongs to <span class="gold">Builders</span></h2>
+<p class="body center" style="max-width:480px;margin:5px auto 0">Two doors. You choose one every single day.</p>
+<div class="doors">
+<div class="door con">
+<div class="door-icon">📺</div>
+<div class="door-title" style="color:var(--text2)">CONSUMER</div>
+<div class="door-desc">Watch others build.<br>Scroll. Consume. Wait.</div>
+</div>
+<div class="door bld">
+<div class="door-icon">🏗️</div>
+<div class="door-title gold">BUILDER ✦</div>
+<div class="door-desc">Create. Launch. Own.<br>Build your digital empire.</div>
+</div>
+</div>
+</section>
+
+<section class="slide" id="s15" data-label="3 Things">
+<p class="eyebrow">Remember This</p>
+<h2 class="h2 center">Three Things to <span class="gold">Remember</span></h2>
+<div class="three">
+<div class="tc3"><div class="tc3-num">1</div><div class="tc3-title">You Already Have What It Takes</div><div class="tc3-body">You don&rsquo;t need money, a degree, or connections. You need curiosity and a device.</div></div>
+<div class="tc3"><div class="tc3-num">2</div><div class="tc3-title">AI Is a Tool, Not a Replacement</div><div class="tc3-body">You are the visionary. AI executes faster. The idea still has to come from you.</div></div>
+<div class="tc3"><div class="tc3-num">3</div><div class="tc3-title">Build Something — Anything</div><div class="tc3-body">The first thing you build doesn&rsquo;t have to be perfect. It just has to exist.</div></div>
+</div>
+</section>
+
+<section class="slide" id="s16" data-label="The Challenge">
+<p class="eyebrow">Your Assignment</p>
+<h2 class="h2 center">Build <span class="gold">One Thing</span><br>Before School Starts</h2>
+<p class="body center" style="max-width:480px;margin:6px auto 0">Pick one. Start today. Your future self will thank you.</p>
+<div class="ch-opts">
+<div class="ch"><span class="ch-icon">🌐</span><div class="ch-label">A Website</div><div class="ch-sub">Your digital home base</div></div>
+<div class="ch"><span class="ch-icon">📱</span><div class="ch-label">A Social Brand</div><div class="ch-sub">Build your audience</div></div>
+<div class="ch"><span class="ch-icon">📧</span><div class="ch-label">An Email List</div><div class="ch-sub">Own your community</div></div>
+<div class="ch"><span class="ch-icon">💰</span><div class="ch-label">A Digital Product</div><div class="ch-sub">Sell what you know</div></div>
+</div>
+<p style="margin-top:clamp(10px,1.8vh,18px);font-size:clamp(13px,1.8vw,18px);font-weight:700;color:var(--emerald)">Use AI. Start free. Start now. 🚀</p>
+</section>
+
+<section class="slide" id="s17" data-label="Thank You">
+<div class="bg-orb" style="width:700px;height:700px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+<div class="avatar" id="closing-avatar" style="margin-bottom:8px;width:clamp(100px,13vw,150px);height:clamp(100px,13vw,150px);font-size:clamp(40px,5.5vw,64px)"><img src="photo.jpg" alt="Jamaur Johnson" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%"></div>
+<p class="eyebrow">Jamaur Johnson</p>
+<p class="cta-tag">THE FUTURE ISN'T COMING.<br>YOU'RE BUILDING IT.</p>
+<p class="cta-url">jamaurjohnson.com</p>
+<img class="qr-img" src="qr.png" alt="Scan to connect with Jamaur Johnson">
+<p class="camp-line">Young Financial Leaders Camp · Wilmington DE · 2026</p>
+</section>
+
+</div>
+
+<script>
+// SLIDES & NAVIGATION
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+const nav=document.getElementById('progress-nav');
+let activeIdx=0;
+slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot'+(i===0?' active':'');b.title=s.dataset.label||'';b.onclick=()=>is3D?go3D(i-activeIdx):goTo(i);nav.appendChild(b)});
+function goTo(i){deck.scrollTo({top:slides[i].offsetTop,behavior:'smooth'})}
+
+// INTERSECTION OBSERVER (scroll mode)
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.intersectionRatio>=.5){const i=slides.indexOf(e.target);activeIdx=i;updateDots();if(i===12&&!termDone)startTerminal()}})},{threshold:.5});
+slides.forEach(s=>io.observe(s));
+
+function updateDots(){document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===activeIdx));}
+
+// KEYBOARD
+document.addEventListener('keydown',e=>{if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();is3D?go3D(1):goTo(Math.min(activeIdx+1,slides.length-1))}if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();is3D?go3D(-1):goTo(Math.max(activeIdx-1,0))}});
+
+// THEME
+const tb=document.getElementById('theme-btn');
+let dark=true;
+try{dark=localStorage.getItem('ptheme')!=='light'}catch(e){}
+applyTheme(dark);
+function applyTheme(d){dark=d;document.documentElement.setAttribute('data-theme',d?'dark':'light');tb.textContent=d?'☀️':'🌙';try{localStorage.setItem('ptheme',d?'dark':'light')}catch(e){}}
+tb.addEventListener('click',()=>applyTheme(!dark));
+
+// 3D MODE
+let is3D=false;
+const btn3d=document.getElementById('btn-3d');
+const prevBtn=document.getElementById('prev-btn');
+const nextBtn=document.getElementById('next-btn');
+
+function setSlideStates(){
+  slides.forEach((s,i)=>{
+    if(i===activeIdx)s.dataset.state='active';
+    else if(i<activeIdx)s.dataset.state='prev';
+    else s.dataset.state='next';
+  });
+}
+
+btn3d.addEventListener('click',()=>{
+  is3D=!is3D;
+  document.body.classList.toggle('mode-3d',is3D);
+  btn3d.classList.toggle('active',is3D);
+  btn3d.innerHTML=is3D?'↔ SLIDE':'↕ SCROLL';
+  btn3d.title=is3D?'Switch to Scroll':'Switch to 3D Slide';
+  prevBtn.style.display=is3D?'flex':'none';
+  nextBtn.style.display=is3D?'flex':'none';
+  if(is3D){
+    setSlideStates();
+    deck.scrollTop=0;
+  } else {
+    slides.forEach(s=>delete s.dataset.state);
+    setTimeout(()=>goTo(activeIdx),50);
+  }
+});
+
+function go3D(delta){
+  if(!is3D)return;
+  const newIdx=Math.max(0,Math.min(activeIdx+delta,slides.length-1));
+  if(newIdx===activeIdx)return;
+  activeIdx=newIdx;
+  setSlideStates();
+  updateDots();
+  if(activeIdx===12&&!termDone)startTerminal();
+}
+
+prevBtn.addEventListener('click',()=>go3D(-1));
+nextBtn.addEventListener('click',()=>go3D(1));
+
+// TOUCH SWIPE (both modes)
+let tx0=0,ty0=0;
+deck.addEventListener('touchstart',e=>{tx0=e.touches[0].clientX;ty0=e.touches[0].clientY},{passive:true});
+deck.addEventListener('touchend',e=>{
+  if(!is3D)return;
+  const dx=e.changedTouches[0].clientX-tx0;
+  const dy=e.changedTouches[0].clientY-ty0;
+  if(Math.abs(dy)>Math.abs(dx)&&Math.abs(dy)>40){
+    go3D(dy<0?1:-1);
+  }
+},{passive:true});
+
+// TERMINAL
+let termDone=false;
+function startTerminal(){
+  termDone=true;
+  const out=document.getElementById('term-out');
+  const cur=document.getElementById('cur');
+  const lines=['✓ Business Name: PawWalkers Pro','✓ Service: Dog Walking + Pet Sitting','✓ Target Market: Busy professionals','✓ Pricing: $25/30min · $40/hour','✓ Revenue Goal: $2,000/month','──────────────────────────────','📱 Instagram + TikTok strategy: ready','🌐 Website copy: generated','📧 Email welcome sequence: drafted','💳 Payment setup: Stripe + CashApp','──────────────────────────────','🚀 You\'re ready to launch TODAY.'];
+  let li=0,ci=0,text='';
+  function type(){if(li>=lines.length){cur.style.display='none';return}const line=lines[li];if(ci<line.length){text+=line[ci++];out.textContent=text;setTimeout(type,16)}else{text+='\n';out.textContent=text;li++;ci=0;setTimeout(type,180)}}
+  setTimeout(type,350);
+}
+</script>
+</body>
+</html>
