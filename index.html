@@ -42,6 +42,7 @@ html,body{height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFo
 .scroll-hint{position:absolute;bottom:clamp(16px,3vh,28px);left:50%;transform:translateX(-50%);font-size:clamp(9px,1vw,10px);letter-spacing:.14em;color:var(--text3);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px}
 .arrow-down{width:16px;height:16px;border-right:2px solid var(--text3);border-bottom:2px solid var(--text3);transform:rotate(45deg);animation:ab .8s ease-in-out infinite alternate}
 @keyframes ab{from{transform:rotate(45deg) translateY(-2px)}to{transform:rotate(45deg) translateY(2px)}}
+@keyframes pulse-q{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.6;transform:scale(.96)}}
 
 /* S2 MEET */
 #s2{gap:clamp(8px,1.5vh,16px)}
@@ -213,8 +214,22 @@ html,body{height:auto!important;overflow:visible!important}
 <div class="scroll-hint"><span>SCROLL TO BEGIN</span><div class="arrow-down"></div></div>
 </section>
 
-<!-- S2 MEET -->
-<section class="slide" id="s2" data-label="Meet Jamaur">
+<!-- S2 QUESTION BACKDROP -->
+<section class="slide" id="s2" data-label="Questions">
+<div class="bg-orb" style="width:700px;height:700px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.08;animation-delay:-2s"></div>
+<p class="eyebrow" style="margin-bottom:clamp(14px,2.5vh,28px)">Before We Get Started</p>
+<div style="font-size:clamp(120px,22vw,260px);font-weight:900;line-height:1;color:var(--gold);opacity:.9;letter-spacing:-.04em;animation:pulse-q 2.4s ease-in-out infinite">?</div>
+<p style="font-size:clamp(12px,1.6vw,18px);color:var(--text2);margin-top:clamp(10px,2vh,20px);letter-spacing:.06em;text-transform:uppercase">Let me ask you all something</p>
+</section>
+
+<!-- S3 PAYOFF -->
+<section class="slide" id="s3" data-label="Dreamers vs Builders">
+<div class="bg-orb" style="width:600px;height:600px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.1;animation-delay:-1s"></div>
+<p style="font-size:clamp(22px,4.5vw,64px);font-weight:900;line-height:1.15;letter-spacing:-.02em;color:var(--gold);max-width:760px;text-align:center">The difference between<br>dreamers and builders<br><span style="color:var(--text)">has never been</span><br><span style="color:var(--emerald)">smaller than it is right now.</span></p>
+</section>
+
+<!-- S4 MEET -->
+<section class="slide" id="s4" data-label="Meet Jamaur">
 <p class="eyebrow">The Speaker</p>
 <h2 class="h2">Meet <span class="gold">Jamaur Johnson</span></h2>
 <div class="avatar">👤</div>
@@ -227,8 +242,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S3 BARBER -->
-<section class="slide" id="s3" data-label="The Story">
+<!-- S5 BARBER -->
+<section class="slide" id="s5" data-label="The Story">
 <div class="bg-orb" style="width:400px;height:400px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%);opacity:.1"></div>
 <p class="eyebrow">The Origin Story</p>
 <div style="font-size:clamp(36px,5.5vw,64px);margin:4px 0">✂️</div>
@@ -245,8 +260,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S4 WHY -->
-<section class="slide" id="s4" data-label="Why Ideas Die">
+<!-- S6 WHY -->
+<section class="slide" id="s6" data-label="Why Ideas Die">
 <p class="eyebrow">The Problem</p>
 <h2 class="h2">Why Most <span class="coral">Ideas Die</span></h2>
 <div class="excuse-grid">
@@ -258,8 +273,8 @@ html,body{height:auto!important;overflow:visible!important}
 <div class="smash">THESE ARE NO LONGER EXCUSES. ✓</div>
 </section>
 
-<!-- S5 AI -->
-<section class="slide" id="s5" data-label="AI Superpower">
+<!-- S7 AI -->
+<section class="slide" id="s7" data-label="AI Superpower">
 <div class="bg-orb" style="width:580px;height:580px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
 <p class="eyebrow">The Shift</p>
 <h2 class="h2 center">AI Is Your New <span class="gold">Superpower</span></h2>
@@ -270,8 +285,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S6 MAL'S -->
-<section class="slide" id="s6" data-label="Mal's Famous">
+<!-- S8 MAL'S -->
+<section class="slide" id="s8" data-label="Mal's Famous">
 <p class="eyebrow">Case Study</p>
 <h2 class="h2"><span class="gold">Mal's Famous</span> Seafood Grill</h2>
 <p class="body center" style="max-width:480px;margin:4px auto 8px">We built the entire digital side of his business — website, system, social, email — right there in the barbershop conversation.</p>
@@ -297,8 +312,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S7 REAL ESTATE -->
-<section class="slide" id="s7" data-label="Digital Real Estate">
+<!-- S9 REAL ESTATE -->
+<section class="slide" id="s9" data-label="Digital Real Estate">
 <p class="eyebrow">The Concept</p>
 <h2 class="h2 center">What Is <span class="gold">Digital Real Estate?</span></h2>
 <p class="body center" style="max-width:480px;margin:5px auto 10px">Just like physical real estate has value — digital properties hold value too. And you can own them.</p>
@@ -320,8 +335,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S8 BUILDER -->
-<section class="slide" id="s8" data-label="Builder Framework">
+<!-- S10 BUILDER -->
+<section class="slide" id="s10" data-label="Builder Framework">
 <p class="eyebrow">The Method</p>
 <h2 class="h2">The <span class="gold">Builder Framework</span></h2>
 <div class="steps">
@@ -334,8 +349,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S9 LIE -->
-<section class="slide" id="s9" data-label="The Biggest Lie">
+<!-- S11 LIE -->
+<section class="slide" id="s11" data-label="The Biggest Lie">
 <p class="eyebrow">The Myth</p>
 <h2 class="h2">The <span class="coral">Biggest Lie</span></h2>
 <p class="lie">"YOU NEED MONEY TO START"</p>
@@ -347,8 +362,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S10 GENERATION -->
-<section class="slide" id="s10" data-label="My Generation">
+<!-- S12 GENERATION -->
+<section class="slide" id="s12" data-label="My Generation">
 <p class="eyebrow">The Contrast</p>
 <h2 class="h2">My Generation <span class="gold">Didn't Have This</span></h2>
 <div class="gen">
@@ -371,8 +386,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S11 DEMO -->
-<section class="slide" id="s11" data-label="Live Demo">
+<!-- S13 DEMO -->
+<section class="slide" id="s13" data-label="Live Demo">
 <p class="eyebrow">Live Demo</p>
 <h2 class="h2 center">Watch AI <span class="gold">Build a Business</span></h2>
 <p class="body center" style="max-width:460px;margin:5px auto 10px">Type one sentence. Watch what comes out.</p>
@@ -387,8 +402,8 @@ html,body{height:auto!important;overflow:visible!important}
 <p class="body center" style="margin-top:10px;font-size:clamp(10px,1.2vw,13px)">↑ This is what happens when you stop waiting and start building.</p>
 </section>
 
-<!-- S12 DOORS -->
-<section class="slide" id="s12" data-label="Two Doors">
+<!-- S14 DOORS -->
+<section class="slide" id="s14" data-label="Two Doors">
 <p class="eyebrow">The Choice</p>
 <h2 class="h2 center">Future Belongs to <span class="gold">Builders</span></h2>
 <p class="body center" style="max-width:440px;margin:5px auto 0">Two doors. You choose one every single day.</p>
@@ -406,8 +421,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S13 THREE THINGS -->
-<section class="slide" id="s13" data-label="3 Things">
+<!-- S15 THREE THINGS -->
+<section class="slide" id="s15" data-label="3 Things">
 <p class="eyebrow">Remember This</p>
 <h2 class="h2 center">Three Things to <span class="gold">Remember</span></h2>
 <div class="three">
@@ -417,8 +432,8 @@ html,body{height:auto!important;overflow:visible!important}
 </div>
 </section>
 
-<!-- S14 CHALLENGE -->
-<section class="slide" id="s14" data-label="The Challenge">
+<!-- S16 CHALLENGE -->
+<section class="slide" id="s16" data-label="The Challenge">
 <p class="eyebrow">Your Assignment</p>
 <h2 class="h2 center">Build <span class="gold">One Thing</span><br>Before School Starts</h2>
 <p class="body center" style="max-width:440px;margin:6px auto 0">Pick one. Start today. Your future self will thank you.</p>
@@ -431,8 +446,8 @@ html,body{height:auto!important;overflow:visible!important}
 <p style="margin-top:clamp(8px,1.5vh,16px);font-size:clamp(12px,1.7vw,17px);font-weight:700;color:var(--emerald)">Use AI. Start free. Start now. 🚀</p>
 </section>
 
-<!-- S15 CTA -->
-<section class="slide" id="s15" data-label="Thank You">
+<!-- S17 CTA -->
+<section class="slide" id="s17" data-label="Thank You">
 <div class="bg-orb" style="width:660px;height:660px;background:var(--gold);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
 <div class="avatar" style="margin-bottom:6px">👤</div>
 <p class="eyebrow">Jamaur Johnson</p>
@@ -452,7 +467,7 @@ const nav=document.getElementById('progress-nav');
 let activeIdx=0;
 slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot'+(i===0?' active':'');b.title=s.dataset.label||'';b.onclick=()=>goTo(i);nav.appendChild(b)});
 function goTo(i){deck.scrollTo({top:slides[i].offsetTop,behavior:'smooth'})}
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.intersectionRatio>=0.5){const i=slides.indexOf(e.target);activeIdx=i;document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===i));if(i===10&&!termDone)startTerminal()}})},{threshold:.5});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.intersectionRatio>=0.5){const i=slides.indexOf(e.target);activeIdx=i;document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===i));if(i===12&&!termDone)startTerminal()}})},{threshold:.5});
 slides.forEach(s=>io.observe(s));
 document.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){e.preventDefault();goTo(Math.min(activeIdx+1,slides.length-1))}if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();goTo(Math.max(activeIdx-1,0))}});
 
